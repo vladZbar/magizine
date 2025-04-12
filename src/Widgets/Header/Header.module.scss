@@ -1,0 +1,30 @@
+.header {
+  padding: 0 10%;
+  margin-bottom: 10px;
+  height: 90px;
+  box-shadow: 0px 0px 10px 2px rgb(253, 153, 119, 0.797);
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+
+  .navbar {
+    width: 100%;
+    color: rgb(253, 153, 119);
+    font-weight: 700;
+    font-size: 30px;
+    
+    .link_list {
+      display: flex;
+      justify-content: space-between;
+
+      li {
+        transition: 0.3s;
+      }
+
+      li:hover {
+        transform: scale(0.95);
+        
+      }
+    }
+  }
+}
