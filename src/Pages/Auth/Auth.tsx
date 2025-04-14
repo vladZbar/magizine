@@ -3,15 +3,27 @@ import cl from "./Auth.module.scss";
 import { useAuthUserMutation } from "../../Shared/services/api/users/usersRegister";
 import Button from "../../Shared/UI/button/Button";
 import Input from "../../Shared/UI/input/Input";
-import { IAuthUser } from "../../Shared/services/api/users/usersDto";
 import { useState } from "react";
+import { IAuthUser } from "../../Shared/services/api/users/usersDto";
+import { useAppDispatch } from "../../Shared/hooks/hooks";
+import { setTokens } from "../../Shared/slice/users/users";
 
 const Auth = () => {
+  const dispatch = useAppDispatch();
+
   const [authUser, { isLoading }] = useAuthUserMutation();
   const [formData, setFormData] = useState<IAuthUser>({
     email: "",
     password: "",
   });
+
+  const x = () => {
+    fetch("https://api.escuelajs.co/api/v1/categories")
+    .then((res) => res.json())
+    .then((d) => console.log(d))
+  }
+
+  x()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -21,9 +33,18 @@ const Auth = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    authUser(formData);
+    const response = await authUser(formData).unwrap();
+    localStorage.setItem("acces-token", response.access_token);
+    localStorage.setItem("refresh-token", response.refresh_token);
+    dispatch(
+      setTokens({
+        accesToken: response.access_token,
+        refreshToken: response.refresh_token,
+      })
+    );
+
     setFormData({
       email: "",
       password: "",

@@ -8,7 +8,7 @@ import {
 
 export const users = createApi({
   reducerPath: "users",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://api.escuelajs.co/api/v1/" }), // Укажите базовый URL вашего API
+  baseQuery: fetchBaseQuery({ baseUrl: "https://api.escuelajs.co/api/v1/" }), 
   endpoints: (builder) => ({
     registerUser: builder.mutation<IRegisterRequest, IRegisterResponse>({
       query: (body) => ({
@@ -30,4 +30,4 @@ export const users = createApi({
   }),
 });
 
-export const { useRegisterUserMutation, useAuthUserMutation } = users; // Хук для использования запроса
+export const { useRegisterUserMutation, useAuthUserMutation } = users; 

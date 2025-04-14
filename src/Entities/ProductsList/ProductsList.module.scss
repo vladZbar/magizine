@@ -1,0 +1,14 @@
+.list_wrap {
+  color: rgba(253, 153, 119, 0.797);
+  display: flex;
+  flex-direction: column;
+  padding: 0 10%;
+
+  .list {
+    display: flex;
+    gap: 45px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+}
