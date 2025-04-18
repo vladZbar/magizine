@@ -3,18 +3,32 @@ import cl from "./SearchItems.module.scss";
 import Input from "../../Shared/UI/input/Input";
 import Button from "../../Shared/UI/button/Button";
 import { FC, useState } from "react";
+import { setPage, setProducts } from "../../Shared/slice/products/products";
+import { useAppDispatch } from "../../Shared/hooks/hooks";
+import { useGetProductsQuery } from "../../Shared/services/api/products/products";
 
 const SearchItems: FC = () => {
   const [search, setSearch] = useState("");
+  const dispatch = useAppDispatch();
+  const { data } = useGetProductsQuery();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
   const handleClick = () => {
-    console.log('xxx');
-    
-  }
+    if (data) {
+      dispatch(
+        setProducts(
+          data.filter((el) =>
+            el.title.toLowerCase().includes(search.toLowerCase())
+          )
+        )
+      );
+      setPage(0);
+      setSearch("");
+    }
+  };
 
   return (
     <div className={cl.seatch_container}>

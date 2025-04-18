@@ -9,7 +9,13 @@ export const productsAPI = createApi({
     getProducts: builder.query<IProductsResponse[], void>({
       query: () => "products",
     }),
+    getPageProducts: builder.query<IProductsResponse[], number>({
+      query: (page = 0) => `products?offset=${page}&limit=6`,
+    }),
+    getProductById: builder.query<IProductsResponse, number>({
+      query: (id) => `products/${id}`
+    })
   }),
 });
 
-export const { useGetProductsQuery } = productsAPI;
+export const { useGetProductsQuery, useGetPageProductsQuery, useLazyGetProductsQuery, useGetProductByIdQuery } = productsAPI;
