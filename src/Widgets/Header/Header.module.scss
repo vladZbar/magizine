@@ -4,7 +4,7 @@
   height: 90px;
   box-shadow: 0px 0px 10px 2px rgb(253, 153, 119, 0.797);
   display: flex; 
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 
   .navbar {
@@ -12,18 +12,51 @@
     color: rgb(253, 153, 119);
     font-weight: 700;
     font-size: 30px;
+    display: flex;
+    align-items: center;
+    
+    .logo {
+      margin-right: 50px;
+    }
     
     .link_list {
       display: flex;
-      justify-content: space-between;
+      justify-content: start;
+      align-items: center;
+      gap: 30px;
 
       li {
         transition: 0.3s;
       }
 
       li:hover {
-        transform: scale(0.95);
-        
+        transform: scale(0.95); 
+      }
+    }
+
+    .icons_wrap {
+      margin-left: auto;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 10px;
+
+      .icon {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      
+      .icon:hover {
+        transform: scale(0.9);
+        color: rgba(252, 207, 192, 0.954);
+      }
+
+      .decor {
+        width: 2px;
+        height: 40px;
+        background: rgb(253, 153, 119, 0.797);
       }
     }
   }

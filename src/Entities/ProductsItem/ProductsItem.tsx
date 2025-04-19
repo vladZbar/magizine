@@ -4,6 +4,7 @@ import { formatTitle } from "../../Shared/lib/format";
 import { useNavigate } from "react-router-dom";
 import { setId } from "../../Shared/slice/products/products";
 import { useAppDispatch } from "../../Shared/hooks/hooks";
+import { CiShoppingBasket } from "react-icons/ci";
 
 interface ListItem {
   title: string;
@@ -25,7 +26,10 @@ const ProductsItem = ({ title, images, price, desc, id }: ListItem) => {
 
   return (
     <div className={cl.list_item}>
-      <h3>{formatTitle(title)}</h3>
+      <div className={cl.title_wrap}>
+        <h3>{formatTitle(title)}</h3>
+        <CiShoppingBasket className={cl.icon}/>
+      </div>
       <div>
         <div className={cl.desc}>
           <span>{desc}</span>

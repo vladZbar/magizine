@@ -1,8 +1,9 @@
+import React from "react";
 import cl from "./Button.module.scss";
 
 interface BtnProps {
   children: React.ReactNode;
-  clickHandler?: () => void;
+  clickHandler?: (e?: React.MouseEvent<HTMLElement>) => void;
 }
 
 const Button: React.FC<BtnProps> = ({ children, clickHandler }) => {

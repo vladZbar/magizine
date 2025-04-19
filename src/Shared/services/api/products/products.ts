@@ -18,4 +18,4 @@ export const productsAPI = createApi({
   }),
 });
 
-export const { useGetProductsQuery, useGetPageProductsQuery, useLazyGetProductsQuery, useGetProductByIdQuery } = productsAPI;
+export const { useGetProductsQuery, useGetPageProductsQuery, useLazyGetProductsQuery, useGetProductByIdQuery, useLazyGetProductByIdQuery } = productsAPI;
