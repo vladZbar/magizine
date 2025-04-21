@@ -6,6 +6,8 @@ export interface ProductsState {
   page: number;
   limit: number;
   id: number;
+  showBasket: boolean;
+  countBasket: number;
 }
 
 const initialState: ProductsState = {
@@ -13,6 +15,8 @@ const initialState: ProductsState = {
   page: 0,
   limit: 6,
   id: 0,
+  showBasket: false,
+  countBasket: JSON.parse(localStorage.getItem("basket") || "[]").length || 0,
 };
 
 const productsSlice = createSlice({
@@ -29,8 +33,15 @@ const productsSlice = createSlice({
     setId(state, action: PayloadAction<number>) {
       state.id = action.payload;
     },
+    setShowBasket(state, action: PayloadAction<boolean>) {
+      state.showBasket = action.payload;
+    },
+    setCountBasket(state, action: PayloadAction<number>) {
+      state.countBasket = action.payload;
+    },
   },
 });
 
-export const { setProducts, setPage, setId } = productsSlice.actions;
+export const { setProducts, setPage, setId, setShowBasket, setCountBasket } =
+  productsSlice.actions;
 export default productsSlice.reducer;

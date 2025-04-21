@@ -15,7 +15,7 @@ const Pagination = () => {
   );
 
   const pageItems: IPageItem[] = [];
-  for (let i = 0; i < dataLength; i++) {
+  for (let i = 0; i <= dataLength; i++) {
     const page: IPageItem = { pageNum: i + 1 };
     pageItems.push(page);
   }

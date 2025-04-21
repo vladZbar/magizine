@@ -41,16 +41,34 @@
       align-items: center;
       gap: 10px;
 
-      .icon {
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
-        transition: 0.3s;
-      }
+        .icon {
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+          transition: 0.3s;
+          position: relative;
+        }
+
+        .basket_count {
+          cursor: pointer;
+          position: absolute;
+          padding: 2px;
+          font-size: 10px;
+          border: 1px solid rgb(255, 255, 255);
+          border-radius: 50%;
+          transform: translate(3px, 10px);
+          transition: 0.3s;
+        }
       
       .icon:hover {
         transform: scale(0.9);
         color: rgba(252, 207, 192, 0.954);
+      }
+
+      .basket_count:hover {
+        transform: scale(0.9);
+        color: rgba(252, 207, 192, 0.954);
+        transform: translate(3px, 10px);
       }
 
       .decor {
